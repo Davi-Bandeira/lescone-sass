@@ -42,14 +42,10 @@ $s-device: 760px;
   @return $result;
 }
 
-div {
-  width: grid(6);
-}
-
 // Gera as classes de grid
 
 @for $i from 1 through $cols {
-  .grid-#{i} {
+  .grid-#{$i} {
     width: grid($i);
   }
 }
@@ -60,7 +56,7 @@ div {
   float: left;
   min-height: 1px;
   margin-left: $gutter / 2;
-  margin-right: $gutter /2;
+  margin-right: $gutter / 2;
   @include device(s) {
     width: 100%;
     float: none;
@@ -76,7 +72,7 @@ div {
 // Gera as classes de offset
 
 @for $i from 1 through $cols {
-  .offset-#{i} {
+  .offset-#{$i} {
     margin-left: grid($i, offset);
     @extend %offset;
   }
@@ -107,12 +103,27 @@ div {
   }
   @include device(s) {
     max-width: $s-device;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   @include clearfix;
 }
 
 .container {
   @include container;
+}
+
+@mixin row {
+  position: relative;
+  margin-left: -$gutter / 2;
+  margin-right: -$gutter / 2;
+  @include device(s) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  @include clearfix;
+}
+
+.row {
+  @include row;
 }
