@@ -1,14 +1,112 @@
 *, *::after, *::before {
   box-sizing: border-box; }
 
-p {
-  color: blue; }
-  @media screen and (min-width: 760px) and (max-width: 1199px) {
-    p {
-      color: pink !important; } }
+div {
+  width: calc(50% - 20px); }
+
+.grid-i {
+  width: calc(8.3333333333% - 20px); }
+
+.grid-i {
+  width: calc(16.6666666667% - 20px); }
+
+.grid-i {
+  width: calc(25% - 20px); }
+
+.grid-i {
+  width: calc(33.3333333333% - 20px); }
+
+.grid-i {
+  width: calc(41.6666666667% - 20px); }
+
+.grid-i {
+  width: calc(50% - 20px); }
+
+.grid-i {
+  width: calc(58.3333333333% - 20px); }
+
+.grid-i {
+  width: calc(66.6666666667% - 20px); }
+
+.grid-i {
+  width: calc(75% - 20px); }
+
+.grid-i {
+  width: calc(83.3333333333% - 20px); }
+
+.grid-i {
+  width: calc(91.6666666667% - 20px); }
+
+.grid-i {
+  width: calc(100% - 20px); }
+
+[class^="grid-"] {
+  float: left;
+  min-height: 1px;
+  margin-left: 10px;
+  margin-right: 10px; }
   @media screen and (max-width: 759px) {
-    p {
-      color: aqua !important; } }
+    [class^="grid-"] {
+      width: 100%;
+      float: none;
+      margin-left: 0;
+      margin-right: 0; } }
+
+.offset-i {
+  margin-left: calc(8.3333333333% + gutter/2); }
+
+.offset-i {
+  margin-left: calc(16.6666666667% + gutter/2); }
+
+.offset-i {
+  margin-left: calc(25% + gutter/2); }
+
+.offset-i {
+  margin-left: calc(33.3333333333% + gutter/2); }
+
+.offset-i {
+  margin-left: calc(41.6666666667% + gutter/2); }
+
+.offset-i {
+  margin-left: calc(50% + gutter/2); }
+
+.offset-i {
+  margin-left: calc(58.3333333333% + gutter/2); }
+
+.offset-i {
+  margin-left: calc(66.6666666667% + gutter/2); }
+
+.offset-i {
+  margin-left: calc(75% + gutter/2); }
+
+.offset-i {
+  margin-left: calc(83.3333333333% + gutter/2); }
+
+.offset-i {
+  margin-left: calc(91.6666666667% + gutter/2); }
+
+.offset-i {
+  margin-left: calc(100% + gutter/2); }
+
+@media screen and (max-width: 759px) {
+  .offset-i {
+    margin-left: 0; } }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; }
+  @media screen and (min-width: 760px) and (max-width: 1199px) {
+    .container {
+      max-width: 760px; } }
+  @media screen and (max-width: 759px) {
+    .container {
+      max-width: 760px;
+      margin-left: 10px;
+      margin-right: 10px; } }
+  .container::after, .container::before {
+    content: '';
+    display: table;
+    clear: both; }
 
 p {
   color: blue; }
