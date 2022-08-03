@@ -1,29 +1,29 @@
-// Variáveis do grid
+// Variaveis do grid
 $cols: 12;
 $gutter: 20px;
 $l-device: 1200px;
 $m-device: 760px;
-$s-device: 760px;
+$s-device: 480px;
 
 // Box-sizing
-
-*, *::after, *::before { //seleciona todos os elementos do html
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
-// Mixin de media-querie
-
-@mixin device($size) {
+// Mixin de media-queries
+@mixin d($size) {
   @if $size == l {
-    @media screen and (min-width: $l-device) {
+    @media screen and (min-width: #{$l-device}) {
       @content;
     }
   } @else if $size == m {
-    @media screen and (min-width: $m-device) and (max-width: $l-device - 1) {
+    @media screen and (min-width: #{$m-device}) and (max-width: #{$l-device - 1}) {
       @content;
     }
   } @else if $size == s {
-    @media screen and (max-width: $m-device - 1) {
+    @media screen and (max-width: #{$m-device - 1}) {
       @content;
     }
   }
@@ -34,9 +34,8 @@ $s-device: 760px;
 @function grid($col, $offset: false) {
   $width: $col / $cols * 100 + "%";
   $result: calc(#{$width} - #{$gutter});
-
   @if $offset == offset {
-    $gutter: gutter / 2;
+    $gutter: $gutter / 2;
     $result: calc(#{$width} + #{$gutter});
   }
   @return $result;
@@ -57,7 +56,7 @@ $s-device: 760px;
   min-height: 1px;
   margin-left: $gutter / 2;
   margin-right: $gutter / 2;
-  @include device(s) {
+  @include d(s) {
     width: 100%;
     float: none;
     margin-left: 0;
@@ -78,17 +77,18 @@ $s-device: 760px;
   }
 }
 
-@include device(s) {
+@include d(s) {
   %offset {
     margin-left: 0;
   }
 }
 
-// Mixins de clearfix
+// Mixin de clearfix
 
 @mixin clearfix {
-  &::after, &::before {
-    content: '';
+  &::after,
+  &::before {
+    content: "";
     display: table;
     clear: both;
   }
@@ -98,10 +98,10 @@ $s-device: 760px;
   max-width: $l-device;
   margin: 0 auto;
   position: relative;
-  @include device(m) {
+  @include d(m) {
     max-width: $m-device;
   }
-  @include device(s) {
+  @include d(s) {
     max-width: $s-device;
     padding-left: 10px;
     padding-right: 10px;
@@ -115,9 +115,9 @@ $s-device: 760px;
 
 @mixin row {
   position: relative;
-  margin-left: -$gutter / 2;
-  margin-right: -$gutter / 2;
-  @include device(s) {
+  margin-left: -$gutter/2;
+  margin-right: -$gutter/2;
+  @include d(s) {
     margin-left: 0;
     margin-right: 0;
   }
